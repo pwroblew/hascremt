@@ -25,3 +25,5 @@ hs_err_pid*
 # binaries in mvn target directory
 /target/
 
+/.idea/
+
