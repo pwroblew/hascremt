@@ -13,18 +13,16 @@ class IsTest {
     void testIsEqualToFivePasses() {
         var matchResult = is(equalTo(5)).match(5);
         assertEquals(true, matchResult._1());
-        assertEquals( "is equal to <5>", matchResult._2().toString());
+        assertEquals( "is equal to <5>", matchResult._2().describe());
+        assertEquals( "is equal to <5>", matchResult._2().explain());
     }
 
     @Test
     void testIsEqualToFiveFails() {
         var matchResult = is(equalTo(5)).match(6);
         assertEquals(false, matchResult._1());
-        assertEquals( "is equal to <6>", matchResult._2().toString());
+        assertEquals( "is equal to <5>", matchResult._2().describe());
+        assertEquals( "is equal to <6>", matchResult._2().explain());
     }
 
-    @Test
-    void testDescribe() {
-        assertEquals( "is equal to <5>", is(equalTo(5)).describe().toString());
-    }
 }

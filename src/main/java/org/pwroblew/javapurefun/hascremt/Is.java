@@ -19,11 +19,7 @@ public class Is<T> implements Matcher<T> {
 
     @Override
     public Tuple2<Boolean, Description> match(T actual) {
-        return matcher.match(actual).map((a, b) -> Tuple.of(a, from("is " + b.toString())));
+        return matcher.match(actual).map((a, b) -> Tuple.of(a, from("is " + b.describe(), "is " + b.explain())));
     }
 
-    @Override
-    public Description describe() {
-        return from("is " + matcher.describe().toString());
-    }
 }

@@ -19,11 +19,6 @@ public class EqualTo<T> implements Matcher<T> {
 
     @Override
     public Tuple2<Boolean, Description> match(T actual) {
-        return Tuple.of(it.equals(actual), from("equal to <" + actual + ">"));
-    }
-
-    @Override
-    public Description describe() {
-        return from("equal to <" + it + ">");
+        return Tuple.of(it.equals(actual), from( "equal to <" + it + ">", "equal to <" + actual + ">"));
     }
 }

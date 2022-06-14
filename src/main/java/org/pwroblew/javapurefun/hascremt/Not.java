@@ -8,12 +8,7 @@ import static org.pwroblew.javapurefun.hascremt.StringDescription.from;
 public class Not<T> implements Matcher<T> {
     @Override
     public Tuple2<Boolean, Description> match(T actual) {
-        return matcher.match(actual).map((a, b) -> Tuple.of(!a, from(b.toString())));
-    }
-
-    @Override
-    public Description describe() {
-        return from("not " + matcher.describe().toString());
+        return matcher.match(actual).map((a, b) -> Tuple.of(!a, from("not " + b.describe(), b.explain())));
     }
 
     private final Matcher<T> matcher;

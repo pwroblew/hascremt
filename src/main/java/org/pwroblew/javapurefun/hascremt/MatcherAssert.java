@@ -9,9 +9,9 @@ public class MatcherAssert {
         if (!matchResult._1()) {
             StringBuilder stringBuilder = new StringBuilder()
                     .append("\nExpected: ")
-                    .append(matcher.describe().toString())
+                    .append(matchResult._2().describe())
                     .append("\n  Actual: ")
-                    .append(matchResult._2().toString());
+                    .append(matchResult._2().explain());
 
             throw new AssertionError(stringBuilder.toString());
         }
