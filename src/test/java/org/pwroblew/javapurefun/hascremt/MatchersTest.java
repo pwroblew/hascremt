@@ -1,5 +1,6 @@
 package org.pwroblew.javapurefun.hascremt;
 
+import io.vavr.Tuple2;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -7,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.pwroblew.javapurefun.hascremt.EqualTo.equalTo;
 import static org.pwroblew.javapurefun.hascremt.Is.is;
 import static org.pwroblew.javapurefun.hascremt.MatcherAssert.assertThat;
+import static org.pwroblew.javapurefun.hascremt.Matchers.rmap;
 import static org.pwroblew.javapurefun.hascremt.Not.not;
 
 class MatchersTest {
@@ -20,8 +22,10 @@ class MatchersTest {
         AssertionError exception = assertThrows(AssertionError.class, () ->
                 assertThat(6, is(equalTo(5))));
 
-        var expectedMessage = "\nExpected: is equal to <5>\n" +
-                "  Actual: is equal to <6>";
+        var expectedMessage = """
+
+                Expected: is equal to <5>
+                  Actual: is equal to <6>""";
 
         assertEquals(expectedMessage, exception.getMessage());
     }
@@ -36,10 +40,26 @@ class MatchersTest {
         AssertionError exception = assertThrows(AssertionError.class, () ->
                 assertThat(5, is(not(equalTo(5)))));
 
-        var expectedMessage = "\nExpected: is not equal to <5>\n" +
-                "  Actual: is equal to <5>";
+        var expectedMessage = """
+
+                Expected: is not equal to <5>
+                  Actual: is equal to <5>""";
 
         assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    void testRMap() {
+        Matcher<String> lengthMatcher = rmap(String::length, equalTo(5));
+        final Tuple2<Boolean, Description> matchResult = lengthMatcher.match("aaaaa");
+        assertEquals( true, matchResult._1());
+    }
+
+    @Test
+    void testRMap_2() {
+        Matcher<String> lengthMatcher = rmap(String::length, equalTo(5));
+        final Tuple2<Boolean, Description> matchResult = lengthMatcher.match("aaaaaa");
+        assertEquals( false, matchResult._1());
     }
 
 }
