@@ -16,7 +16,7 @@ public class Matchers {
         return Tuple.of(
                 match1._1() && match2._1(),
                 from(
-                        match1._2().describe() + " " + match2._2().describe(),
+                        "(" + match1._2().describe() + ") AND (" + match2._2().describe() + ")",
                         match1._2().explain() + " " + match2._2().explain()));
     }
 }
