@@ -28,3 +28,6 @@ hs_err_pid*
 /.idea/
 *.iml
 
+/src/test/java/org/pwroblew/javapurefun/hascremt/Entity.java
+/src/test/java/org/pwroblew/javapurefun/hascremt/RealWorldTest.java
+
