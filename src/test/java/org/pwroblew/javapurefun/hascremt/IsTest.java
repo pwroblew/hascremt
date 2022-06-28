@@ -1,9 +1,8 @@
 package org.pwroblew.javapurefun.hascremt;
 
-import io.vavr.Tuple2;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.pwroblew.javapurefun.hascremt.EqualTo.equalTo;
 import static org.pwroblew.javapurefun.hascremt.Is.is;
 

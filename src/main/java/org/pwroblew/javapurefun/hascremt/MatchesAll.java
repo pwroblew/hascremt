@@ -18,7 +18,7 @@ public class MatchesAll<T> implements Matcher<T> {
 
     @Override
     public Tuple2<Boolean, Description> match(T actual) {
-        return Tuple.of(Boolean.TRUE, from("any of type [" + clazz.getCanonicalName() + "]" , "ALL"));
+        return Tuple.of(Boolean.TRUE, from("any of type [" + clazz.getSimpleName() + "]" , clazz.getSimpleName()));
     }
 
 }

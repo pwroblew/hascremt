@@ -50,16 +50,22 @@ class MatchersTest {
 
     @Test
     void testRMap() {
-        Matcher<String> lengthMatcher = rmap(String::length, equalTo(5));
+        Matcher<String> lengthMatcher = rmap(String::length, equalTo(5)).descriptionPrefix("String->length");
         final Tuple2<Boolean, Description> matchResult = lengthMatcher.match("aaaaa");
+
         assertEquals( true, matchResult._1());
+        assertEquals("String->length equal to <5>", matchResult._2().describe());
+        assertEquals("String->length of <aaaaa> equal to <5>", matchResult._2().explain());
     }
 
     @Test
     void testRMap_2() {
-        Matcher<String> lengthMatcher = rmap(String::length, equalTo(5));
+        Matcher<String> lengthMatcher = rmap(String::length, equalTo(5)).descriptionPrefix("String->length");
         final Tuple2<Boolean, Description> matchResult = lengthMatcher.match("aaaaaa");
+
         assertEquals( false, matchResult._1());
+        assertEquals("String->length equal to <5>", matchResult._2().describe());
+        assertEquals("String->length of <aaaaaa> equal to <6>", matchResult._2().explain());
     }
 
 }

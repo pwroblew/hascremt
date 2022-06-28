@@ -21,4 +21,8 @@ public class EqualTo<T> implements Matcher<T> {
     public Tuple2<Boolean, Description> match(T actual) {
         return Tuple.of(it.equals(actual), from( "equal to <" + it + ">", "equal to <" + actual + ">"));
     }
+
+    public Matcher<T> prefixParam(String prefix) {
+        return mapDescription(desc -> desc._2().replaceAll("<(\\d+)>", prefix + "<$1>"), expl -> expl._2());
+    }
 }

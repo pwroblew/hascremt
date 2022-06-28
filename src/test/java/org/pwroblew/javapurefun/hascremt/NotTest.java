@@ -2,9 +2,8 @@ package org.pwroblew.javapurefun.hascremt;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.pwroblew.javapurefun.hascremt.EqualTo.equalTo;
-import static org.pwroblew.javapurefun.hascremt.Is.is;
 import static org.pwroblew.javapurefun.hascremt.Not.not;
 
 class NotTest {

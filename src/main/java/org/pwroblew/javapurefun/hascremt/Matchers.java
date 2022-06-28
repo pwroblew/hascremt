@@ -17,6 +17,6 @@ public class Matchers {
                 match1._1() && match2._1(),
                 from(
                         "(" + match1._2().describe() + ") AND (" + match2._2().describe() + ")",
-                        match1._2().explain() + " " + match2._2().explain()));
+                        "(" + match1._2().explain() + ") AND (" + match2._2().explain() + ")"));
     }
 }
